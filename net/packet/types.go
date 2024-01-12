@@ -125,11 +125,11 @@ func (s *String) ReadFrom(r io.Reader) (n int64, err error) {
 	}
 	n += nn
 
-	bs := make([]byte, l)
+	bs := make([]byte, l.Value)
 	if _, err := io.ReadFull(r, bs); err != nil {
 		return n, err
 	}
-	n += int64(l)
+	n += int64(l.Value)
 
 	*s = String(bs)
 	return n, nil
